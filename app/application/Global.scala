@@ -7,7 +7,7 @@ import com.mongodb.casbah.Imports._
 import scala.io.Source
 import scala.util.matching.Regex
 
-case class BookSection(book: String, chapter: Int, verse: Int, text: String)
+case class BookSection(book: String, chapter: Int, verse: Int, var text: String)
 
 object Global extends WithFilters(MyFilter) {
   
@@ -38,7 +38,7 @@ object Global extends WithFilters(MyFilter) {
             bookSection = BookSection(book, chapter, verse, text)
             allVerses = bookSection :: allVerses
           } else {
-            bookSection.text.concat(cleanLine)
+            allVerses.head.text = allVerses.head.text.concat(" " + cleanLine)
           }
         }
       }

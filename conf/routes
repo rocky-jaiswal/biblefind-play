@@ -3,11 +3,11 @@
 # ~~~~
 
 # Home page
-GET     /                             controllers.Application.index
-GET     /books                        controllers.Application.books
-GET     /chapters/:book               controllers.Application.chapters(book: String)
-GET     /verses/:book/:chapter        controllers.Application.verses(book: String, chapter: Int)
-GET     /verse/:book/:chapter/:verse  controllers.Application.verse(book: String, chapter: Int, verse: Int)
+GET     /                                 controllers.Application.index
+GET     /api/books                        controllers.Api.books
+GET     /api/chapters/:book               controllers.Api.chapters(book: String)
+GET     /api/verses/:book/:chapter        controllers.Api.verses(book: String, chapter: Int)
+GET     /api/verse/:book/:chapter/:verse  controllers.Api.verse(book: String, chapter: Int, verse: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 #GET     /assets/*file               controllers.Assets.at(path="/public", file)

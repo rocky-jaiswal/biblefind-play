@@ -53,8 +53,11 @@ object MyFilter extends EssentialFilter {
   
   def apply(next: EssentialAction) = new EssentialAction {
     def apply(request: RequestHeader) = {
-      next(request).map(result => 
-        result.withHeaders("ACCESS_CONTROL_ALLOW_ORIGIN" -> "http://localhost:9000")
+      next(request)
+      .map(result => 
+        result.withHeaders("ACCESS-CONTROL-ALLOW-ORIGIN" -> "*"))
+      .map(result => 
+        result.withHeaders("ACCESS-CONTROL-ALLOW-HEADERS" -> "*")
       )
     }
   }
